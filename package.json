@@ -2,12 +2,15 @@
   "name": "tindoor",
   "description": "tinder like door opener",
   "version": "1.0.0",
-  "main": "main.js",
+  "main": "server.js",
   "engines": {
     "node": ">=0.10.0"
   },
   "dependencies": {
       "cylon": "*",
-      "cylon-i2c": "*"
+      "cylon-i2c": "*",
+      "express": "4.12.3",
+      "ejs": "2.3.1"
+
   }
 }
