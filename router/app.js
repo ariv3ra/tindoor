@@ -5,6 +5,7 @@ module.exports=function(app)
   });
   
   app.get('/about',function(req,res){
-    res.render('about.html');
+    //res.render('about.html');
+    var c = Cylon.start();
   });
 }
