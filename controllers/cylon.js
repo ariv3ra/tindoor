@@ -14,22 +14,18 @@ module.exports = function(app) {
     },
 
     work: function(my) {
-      app.route('/motor').get(function(req, res, next) {
-        var angle = 0,
-        increment = 110;
+      app.route('/move').get(function(req, res, next) {
+        if (my.servo.currentAngle() > 0){
+          console.log('Angle: 0');
+          my.servo.angle(0);
 
-        every((1).second(), function() {
-          angle += increment;
-
-          my.servo.angle(angle);
-
-          console.log("Current Angle: " + (my.servo.currentAngle()));
-
-          if ((angle === 0) || (angle === 110)) {
-            increment = -increment;
-          }
-        });
-        
+        }
+        else{
+          console.log('Angle: 90');
+          my.servo.angle(90); 
+        }
+        Cylon.halt();
+        res.send('Got a door Open Request');
       });
     }
   }).start();
