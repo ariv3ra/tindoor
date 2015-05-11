@@ -22,7 +22,13 @@ module.exports = function(app) {
         }
         else{
           console.log('Angle: 90');
-          my.servo.angle(90); 
+          my.servo.angle(90);
+          
+          after((1).seconds(), function() {
+            my.servo.angle(0);
+            return console.log('Angle: 0');
+          });
+          
         }
         Cylon.halt();
         res.send('Got a door Open Request');
